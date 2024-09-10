@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #37414D; /* Background */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff; /* Primary Text */
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1A1826; /* Dark background */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #ffffff; /* Primary Text */
+}
+
+.game-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.category-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to multiple rows */
+    justify-content: center; /* Center the category cards */
+    gap: 17px; /* Increased space between cards */
+}
+
+.category-card {
+    background-color: #A1D1D1; /* Card Background */
+    color: #2B2B2B; /* Card Text */
+    border-radius: 13px;
+    padding: 20px; /* Adjusted padding */
+    min-width: 200px; /* Adjusted minimum width */
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s;
+    border: 1px solid #575268; /* Surface1 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-bottom: 5px;
+    font-size: 1.2em; /* Adjusted font size */
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 15px rgba(0, 0, 0, 0.2);
+    background-color: #3D818B; /* Surface2 */
+}
+
+.question {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #575268; /* Surface1 */
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #A1D1D1; /* Card Background */
+    color: #2B2B2B; /* Card Text */
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.question:hover {
+    background-color: #3D818B; /* Surface2 */
+    transform: translateY(-5px);
+    box-shadow: 0 20px 15px rgba(0, 0, 0, 0.2);
+}
+
+.timer {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ffffff; /* Primary Text */
+}

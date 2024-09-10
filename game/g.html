@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Group Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .main-features, .detailed-steps, .summary {
+            margin-bottom: 40px;
+        }
+        .feature, .step, .summary-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .feature h3, .step h3, .summary-item h3 {
+            margin-top: 0;
+        }
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .category {
+            flex: 1 1 calc(33.333% - 10px);
+            background-color: #eaeaea;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+        }
+        .category:hover {
+            background-color: #d4d4d4;
+        }
+        .category span {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 1;
+        }
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+        .dropdown a:hover {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Interactive Group Quiz</h1>
+        <div class="main-features">
+            <h2>Main Features</h2>
+            <div class="feature">
+                <h3>Game Creation</h3>
+                <ul>
+                    <li>New Game: Allows users to create a new game.</li>
+                    <li>My Games: Lets users restore or continue previous games.</li>
+                    <li>Children's Interface: Offers a child-friendly version of the game.</li>
+                </ul>
+            </div>
+            <div class="feature">
+                <h3>Category Selection</h3>
+                <p>Players select categories for their team and the opposing team. Each team selects 3 categories, making a total of 6 categories with 36 different questions.</p>
+            </div>
+            <div class="feature">
+                <h3>Team Information</h3>
+                <p>Players specify the game name and team names, along with the number of players in each team.</p>
+            </div>
+        </div>
+
+        <div class="detailed-steps">
+            <h2>Detailed Steps</h2>
+            <div class="step">
+                <h3>1. Create a Game</h3>
+                <p>When players first enter the game interface, they are greeted with options to create a new game, access their previous games, or switch to a children's interface.</p>
+                <ul>
+                    <li>New Game: Initiates the process of setting up a new quiz game.</li>
+                    <li>My Games: Allows players to continue or review games they have previously started.</li>
+                    <li>Children's Interface: Provides a simplified version of the game suitable for younger players.</li>
+                </ul>
+            </div>
+            <div class="step">
+                <h3>2. Select Categories</h3>
+                <p>Players are then prompted to select categories for their quiz. The categories are divided into two sections:</p>
+                <h4>Temporary Categories (First Part of Selection)</h4>
+                <div class="categories">
+                    <div class="category">Dexter <span>(12 games left)</span>
+                        <div class="dropdown">
+                            <a href="#">Option 1</a>
+                            <a href="#">Option 2</a>
+                            <a href="#">Option 3</a>
+                        </div>
+                    </div>
+                    <div class="category">The Walking Dead <span>(38 games left)</span>
+                        <div class="dropdown">
+                            <a href="#">Option 1</a>
+                            <a href="#">Option 2</a>
+                            <a href="#">Option 3</a>
+                        </div>
+                    </div>
+                    <!-- ... other categories ... -->
+                </div>
+                <h4>Additional Categories (Second Part of Selection)</h4>
+                <div class="categories">
+                    <div class="category">Geography
+                        <div class="dropdown">
+                            <a href="#">Option 1</a>
+                            <a href="#">Option 2</a>
+                            <a href="#">Option 3</a>
+                        </div>
+                    </div>
+                    <div class="category">Who is famous
+                        <div class="dropdown">
+                            <a href="#">Option 1</a>
+                            <a href="#">Option 2</a>
+                            <a href="#">Option 3</a>
+                        </div>
+                    </div>
+                    <!-- ... other categories ... -->
+                </div>
+            </div>
+            <div class="step">
+                <h3>3. Specify Team Information</h3>
+                <p>After selecting the categories, players need to provide information about the teams:</p>
+                <ul>
+                    <li>Game Name: Enter a name for the game to easily identify it.</li>
+                    <li>First Team: Enter the name of the first team and specify the number of players.</li>
+                    <li>Second Team: Enter the name of the second team and specify the number of players.</li>
+                </ul>
+            </div>
+            <div class="step">
+                <h3>4. Start the Game</h3>
+                <p>Once the categories and team information are set, players can start the game by clicking the <strong>Start playing</strong> button. This button is prominently displayed at the bottom of the interface, ensuring easy access.</p>
+            </div>
+        </div>
+
+        <div class="summary">
+            <h2>Summary</h2>
+            <div class="summary-item">
+                <h3>1. Create a Game</h3>
+                <p>Players initiate a new game or continue a previous one.</p>
+            </div>
+            <div class="summary-item">
+                <h3>2. Select Categories</h3>
+                <p>Players choose categories for both teams from a variety of topics.</p>
+            </div>
+            <div class="summary-item">
+                <h3>3. Specify Team Information</h3>
+                <p>Players enter the game name, team names, and the number of players.</p>
+            </div>
+            <div class="summary-item">
+                <h3>4. Start the Game</h3>
+                <p>Players begin the quiz by clicking the "Start playing" button.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.category').forEach(category => {
+            category.addEventListener('click', () => {
+                const dropdown = category.querySelector('.dropdown');
+                dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>

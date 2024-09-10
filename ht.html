@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Challenge Landing Page</title>
+    <script src="https://unpkg.com/htmx.org@1"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/gameLogic.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Game Challenge!</h1>
+            <p>Challenge your friends in various categories!</p>
+            <button class="start-button" hx-get="/fibonacci" hx-target="#game-info">Get Started</button>
+        </div>
+    </header>
+
+    <section class="categories-section">
+        <h2>Choose a Category</h2>
+        <div class="category-container">
+            <div class="category-card" hx-get="/category/general" hx-target="#game-info">
+                <h3>General Knowledge</h3>
+            </div>
+            <div class="category-card" hx-get="/category/science" hx-target="#game-info">
+                <h3>Science</h3>
+            </div>
+            <div class="category-card" hx-get="/category/history" hx-target="#game-info">
+                <h3>History</h3>
+            </div>
+            <div class="category-card" hx-get="/category/sports" hx-target="#game-info">
+                <h3>Sports</h3>
+            </div>
+            <div class="category-card" hx-get="/category/music" hx-target="#game-info">
+                <h3>Music</h3>
+            </div>
+            <div class="category-card" hx-get="/category/movies" hx-target="#game-info">
+                <h3>Movies</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="subscribe-section">
+        <h2>Subscribe for Updates</h2>
+        <form id="subscribe-form" hx-post="/subscribe" hx-target="#subscribe-response" hx-swap="innerHTML">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+        <div id="subscribe-response"></div>
+    </section>
+
+    <section id="game-info" class="game-info"></section>
+
+    <footer>
+        <p>&copy; 2023 Game Challenge. All rights reserved.</p>
+    </footer>
+    <tr id="replaceMe">
+        <td colspan="3">
+          <button class='btn primary' hx-get="/contacts/?page=2"
+                              hx-target="#replaceMe"
+                              hx-swap="outerHTML">
+               Load More Agents... <img class="htmx-indicator" src="/img/bars.svg">
+          </button>
+        </td>
+      </tr>
+</body>
+</html>

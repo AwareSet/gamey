@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"> <!-- Default to English -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entertainment Quiz Landing Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Handjet:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org@1"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="language-selector">
+            <select id="language-dropdown" onchange="changeLanguage(this.value)">
+                <option value="en">English</option>
+                <option value="ar">العربية</option>
+            </select>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <!-- <img src="https://media.discordapp.net/attachments/1067568613508263936/1282514778215940196/paradigm9699_converted_to__Backgrounds_-_Base_1E1E2E_-_Mantle_1_e34455cf-1d83-4dcc-8d30-f99860fe38b8.png?ex=66dfa277&is=66de50f7&hm=b8ea6ae99099c19b4f3116a28cf9e9cece924ecd22c9adea8b3846900df4b911&=&format=webp&quality=lossless&width=694&height=694" alt="Games" class="hero-image"> -->
+            <div class="hero-content">
+                <h1 class="handjet-title" id="hero-title">Welcome to the Ultimate Quiz Challenge!</h1>
+                <p class="amiri-quran-regular" id="hero-description">Test your knowledge and compete with friends across various fun categories!</p>
+                <div class="button-container">
+                    <button class="start-button-up" hx-get="/fibonacci" hx-target="#game-info">Start the Fun!</button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="categories-section">
+            <h2 class="handjet-title" id="categories-title">Pick Your Challenge</h2>
+            <div class="category-container">
+                <div class="category-card" style="background-color: #CAA9FA;" hx-get="/category/general" hx-target="#game-info">
+                    <i class="fas fa-question-circle fa-2x"></i>
+                    <h3 class="handjet-title" id="general-knowledge">Trivia Time</h3>
+                </div>
+                <div class="category-card" style="background-color: #95CCC4;" hx-get="/category/science" hx-target="#game-info">
+                    <i class="fas fa-flask fa-2x"></i>
+                    <h3 class="handjet-title" id="science">Science Whiz</h3>
+                </div>
+                <div class="category-card" style="background-color: #F5E0DC;" hx-get="/category/history" hx-target="#game-info">
+                    <i class="fas fa-book fa-2x"></i>
+                    <h3 class="handjet-title" id="history">History Buff</h3>
+                </div>
+                <div class="category-card" style="background-color: #CAA9FA;" hx-get="/category/sports" hx-target="#game-info">
+                    <i class="fas fa-futbol fa-2x"></i>
+                    <h3 class="handjet-title" id="sports">Sports Fanatic</h3>
+                </div>
+                <div class="category-card" style="background-color: #95CCC4;" hx-get="/category/music" hx-target="#game-info">
+                    <i class="fas fa-music fa-2x"></i>
+                    <h3 class="handjet-title" id="music">Music Maestro</h3>
+                </div>
+                <div class="category-card" style="background-image: url('/Users/knighty/govim/cmd/img/img3.png'); background-size: cover; background-repeat: no-repeat; background-position: center; background-clip: border-box;">
+                    <i class="fas fa-laptop-code fa-2x"></i>
+                    <h3 class="handjet-title" id="movies">Movie Buff</h3>
+                </div>
+                </div>
+                <div class="category-card" style="background-color: #CAA9FA;" hx-get="/category/art" hx-target="#game-info">
+                    <i class="fas fa-paint-brush fa-2x"></i>
+                    <h3 class="handjet-title" id="art">Art Aficionado</h3>
+                </div>
+                <div class="category-card" style="background-color: #95CCC4;" hx-get="/category/literature" hx-target="#game-info">
+                    <i class="fas fa-book-open fa-2x"></i>
+                    <h3 class="handjet-title" id="literature">Literature Lover</h3>
+                </div>
+            </div>
+
+                <div class="category-card" style="background-image: url('https://media.discordapp.net/attachments/1067568613508263936/1282517467146616892/paradigm9699_converted_to__Backgrounds_-_Base_1E1E2E_-_Mantle_1_e6546616-aa69-4f8d-b6cd-42db4181663f.png?ex=66dfa4f8&is=66de5378&hm=adbe903816b936e2e5957504e7c896bf057941f6baff53f816089299df311c85&=&format=webp&quality=lossless&width=694&height=694'); background-size: cover; background-repeat: no-repeat; background-position: center;" hx-get="/category/technology" hx-target="#game-info">
+                    <i class="fas fa-laptop-code fa-2x"></i>
+                    <h3 class="handjet-title" id="technology">Tech Guru</h3>
+                </div>
+                </div>
+                <div class="category-card" style="background-color: #CAA9FA;" hx-get="/category/health" hx-target="#game-info">
+                    <i class="fas fa-heartbeat fa-2x"></i>
+                    <h3 class="handjet-title" id="health">Health Nut</h3>
+                </div>
+                <div class="category-card" style="background-image: url('https://media.discordapp.net/attachments/1067568613508263936/1282657471470506045/paradigm9699_converted_to__Backgrounds_-_Base_1E1E2E_-_Mantle_1_9eed40a2-16dc-41fd-809b-728539bb0016.png?ex=66e0275b&is=66ded5db&hm=4b1f75f2ee21c2f4883ad548274dc2b026f1a1622b9d23c31a21cef2206963ad&=&format=webp&quality=lossless&width=694&height=694'); background-size: cover; background-repeat: no-repeat; background-position: center;"  hx-get="/category/geography" hx-target="#game-info">
+                    <i class="fas fa-globe fa-2x"></i>
+                    <h3 class="handjet-title" id="geography">Geo Genius</h3>
+                </div>
+                <div class="category-card" style="background-color: #F2CDCD;" hx-get="/category/food" hx-target="#game-info">
+                    <i class="fas fa-utensils fa-2x"></i>
+                    <h3 class="handjet-title" id="food">Foodie</h3>
+                <!-- </div> -->
+            </div>
+        </section>
+
+
+            <div class="category-container">
+                <div class="category-card" style="background-color: #F5C2E7;" hx-get="/category/travel" hx-target="#game-info">
+                    <i class="fas fa-plane fa-2x"></i>
+                    <h3 class="handjet-title" id="travel">Travel Enthusiast</h3>
+                </div>
+                <div class="category-card" style="background-color: #CBA6F7;" hx-get="/category/nature" hx-target="#game-info">
+                    <i class="fas fa-tree fa-2x"></i>
+                    <h3 class="handjet-title" id="nature">Nature Lover</h3>
+                </div>
+                <div class="category-card" style="background-color: #F38BA8;" hx-get="/category/animals" hx-target="#game-info">
+                    <i class="fas fa-paw fa-2x"></i>
+                    <h3 class="handjet-title" id="animals">Animal Expert</h3>
+                </div>
+                <div class="category-card" style="background-color: #EBA0AC;" hx-get="/category/fashion" hx-target="#game-info">
+                    <i class="fas fa-tshirt fa-2x"></i>
+                    <h3 class="handjet-title" id="fashion">Fashionista</h3>
+                </div>
+            </div>
+            <div class="category-container">
+                <div class="category-card" style="background-color: #FAB387;" hx-get="/category/business" hx-target="#game-info">
+                    <i class="fas fa-briefcase fa-2x"></i>
+                    <h3 class="handjet-title" id="business">Business Brain</h3>
+                </div>
+                <div class="category-card" style="background-color: #F9E2AF;" hx-get="/category/education" hx-target="#game-info">
+                    <i class="fas fa-graduation-cap fa-2x"></i>
+                    <h3 class="handjet-title" id="education">Education Expert</h3>
+                </div>
+                <div class="category-card" style="background-color: #A6E3A1;" hx-get="/category/psychology" hx-target="#game-info">
+                    <i class="fas fa-brain fa-2x"></i>
+                    <h3 class="handjet-title" id="psychology">Psychology Pro</h3>
+                </div>
+                <div class="category-card" style="background-color: #94E2D5;" hx-get="/category/philosophy" hx-target="#game-info">
+                    <i class="fas fa-lightbulb fa-2x"></i>
+                    <h3 class="handjet-title" id="philosophy">Philosophy Fan</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="game-info" class="game-info"></section>
+
+        <footer>
+            <p class="amiri-quran-regular">&copy; 2023 Ultimate Quiz Challenge. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script>
+        function changeLanguage(lang) {
+            if (lang === 'ar') {
+                document.getElementById('hero-title').innerText = 'مرحبًا بكم في تحدي المسابقة النهائي!';
+                document.getElementById('hero-description').innerText = 'اختبر معلوماتك وتنافس مع الأصدقاء في فئات ممتعة مختلفة!';
+                document.getElementById('categories-title').innerText = 'اختر تحديك';
+                document.getElementById('general-knowledge').innerText = 'وقت التوافه';
+                document.getElementById('science').innerText = 'عبقري العلوم';
+                document.getElementById('history').innerText = 'محب التاريخ';
+                document.getElementById('sports').innerText = 'مهووس الرياضة';
+                document.getElementById('music').innerText = 'مايسترو الموسيقى';
+                document.getElementById('movies').innerText = 'محب الأفلام';
+                document.getElementById('art').innerText = 'عاشق الفن';
+                document.getElementById('literature').innerText = 'محب الأدب';
+                document.getElementById('technology').innerText = 'خبير التكنولوجيا';
+                document.getElementById('health').innerText = 'مهووس الصحة';
+                document.getElementById('geography').innerText = 'عبقري الجغرافيا';
+                document.getElementById('food').innerText = 'محب الطعام';
+                document.getElementById('travel').innerText = 'عاشق السفر';
+                document.getElementById('nature').innerText = 'محب الطبيعة';
+                document.getElementById('animals').innerText = 'خبير الحيوانات';
+                document.getElementById('fashion').innerText = 'عاشق الموضة';
+                document.getElementById('business').innerText = 'عقل الأعمال';
+                document.getElementById('education').innerText = 'خبير التعليم';
+                document.getElementById('psychology').innerText = 'خبير علم النفس';
+                document.getElementById('philosophy').innerText = 'محب الفلسفة';
+                document.documentElement.setAttribute('lang', 'ar');
+                document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+                document.getElementById('hero-title').innerText = 'Welcome to the Ultimate Quiz Challenge!';
+                document.getElementById('hero-description').innerText = 'Test your knowledge and compete with friends across various fun categories!';
+                document.getElementById('categories-title').innerText = 'Pick Your Challenge';
+                document.getElementById('general-knowledge').innerText = 'Trivia Time';
+                document.getElementById('science').innerText = 'Science Whiz';
+                document.getElementById('history').innerText = 'History Buff';
+                document.getElementById('sports').innerText = 'Sports Fanatic';
+                document.getElementById('music').innerText = 'Music Maestro';
+                document.getElementById('movies').innerText = 'Movie Buff';
+                document.getElementById('art').innerText = 'Art Aficionado';
+                document.getElementById('literature').innerText = 'Literature Lover';
+                document.getElementById('technology').innerText = 'Tech Guru';
+                document.getElementById('health').innerText = 'Health Nut';
+                document.getElementById('geography').innerText = 'Geo Genius';
+                document.getElementById('food').innerText = 'Foodie';
+                document.getElementById('travel').innerText = 'Travel Enthusiast';
+                document.getElementById('nature').innerText = 'Nature Lover';
+                document.getElementById('animals').innerText = 'Animal Expert';
+                document.getElementById('fashion').innerText = 'Fashionista';
+                document.getElementById('business').innerText = 'Business Brain';
+                document.getElementById('education').innerText = 'Education Expert';
+                document.getElementById('psychology').innerText = 'Psychology Pro';
+                document.getElementById('philosophy').innerText = 'Philosophy Fan';
+                document.documentElement.setAttribute('lang', 'en');
+                document.documentElement.setAttribute('dir', 'ltr');
+            }
+        }
+    </script>
+</body>
+</html>

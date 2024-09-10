@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Selection</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/htmx.org@1.7.0"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Game Setup</h1>
+        <form hx-post="/submit-game" hx-target="#result">
+            <div class="team-info">
+                <label for="game-name">Game Name:</label>
+                <input type="text" id="game-name" name="game_name" required>
+
+                <label for="team1-name">Team 1 Name:</label>
+                <input type="text" id="team1-name" name="team1_name" required>
+
+                <label for="team1-players">Number of Players in Team 1:</label>
+                <input type="number" id="team1-players" name="team1_players" min="1" required>
+
+                <label for="team2-name">Team 2 Name:</label>
+                <input type="text" id="team2-name" name="team2_name" required>
+
+                <label for="team2-players">Number of Players in Team 2:</label>
+                <input type="number" id="team2-players" name="team2_players" min="1" required>
+            </div>
+
+            <div class="category-selection">
+                <h2>Category Selection</h2>
+                <div class="team-categories">
+                    <h3>Team 1 Categories</h3>
+                    <select name="team1_category1" required>
+                        <option value="">Select Category</option>
+                        <option value="category1">Category 1</option>
+                        <option value="category2">Category 2</option>
+                        <option value="category3">Category 3</option>
+                        <!-- Add more categories as needed -->
+                    </select>
+                    <select name="team1_category2" required>
+                        <option value="">Select Category</option>
+                        <option value="category1">Category 1</option>
+                        <option value="category2">Category 2</option>
+                        <option value="category3">Category 3</option>
+                        <!-- Add more categories as needed -->
+                    </select>
+                    <select name="team1_category3" required>
+                        <option value="">Select Category</option>
+                        <option value="category1">Category 1</option>
+                        <option value="category2">Category 2</option>
+                        <option value="category3">Category 3</option>
+                        <!-- Add more categories as needed -->
+                    </select>
+                </div>
+                <div class="team-categories">
+                    <h3>Team 2 Categories</h3>
+                    <select name="team2_category1" required>
+                        <option value="">Select Category</option>
+                        <option value="category1">Category 1</option>
+                        <option value="category2">Category 2</option>
+                        <option value="category3">Category 3</option>
+                        <!-- Add more categories as needed -->
+                    </select>
+                    <select name="team2_category2" required>
+                        <option value="">Select Category</option>
+                        <option value="category1">Category 1</option>
+                        <option value="category2">Category 2</option>
+                        <option value="category3">Category 3</option>
+                        <!-- Add more categories as needed -->
+                    </select>
+                    <select name="team2_category3" required>
+                        <option value="">Select Category</option>
+                        <option value="category1">Category 1</option>
+                        <option value="category2">Category 2</option>
+                        <option value="category3">Category 3</option>
+                        <!-- Add more categories as needed -->
+                    </select>
+                </div>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="result"></div>
+    </div>
+</body>
+</html>

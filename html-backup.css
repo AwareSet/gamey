@@ -1,0 +1,151 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero {
+    background-image: url('https://source.unsplash.com/1600x900/?games'); /* Hero image */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;a
+    padding: 100px 20px;
+    width: 100%;
+}
+
+.hero-content {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+.start-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.start-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.categories-section {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #fff;
+    width: 100%;
+}
+
+h2 {
+    margin: 20px 0;
+}
+
+.category-container {
+    display: flex;
+    overflow-x: auto; /* Allow horizontal scrolling */
+    padding: 10px 0;
+    gap: 15px; /* Space between cards */
+}
+
+.category-card {
+    background-color: #0f203e;
+    color: rgb(68, 68, 68);
+    border-radius: 8px;
+    padding: 20px;
+    min-width: 150px; /* Minimum width for cards */
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.game-info {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+}
+
+footer {
+    margin-top: auto;
+    padding: 10px;
+    text-align: center;
+    color: #666;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Challenge Landing Page</title>
+    <script src="https://unpkg.com/htmx.org@1"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Game Challenge!</h1>
+            <p>Challenge your friends in various categories!</p>
+            <button class="start-button" hx-get="/fibonacci" hx-target="#game-info">Get Started</button>
+        </div>
+    </header>
+    
+    <section class="categories-section">
+        <h2>Choose a Category</h2>
+        <div class="category-container">
+            <div class="category-card" hx-get="/category/general" hx-target="#game-info">
+                <h3>General Knowledge</h3>
+            </div>
+            <div class="category-card" hx-get="/category/science" hx-target="#game-info">
+                <h3>Science</h3>
+            </div>
+            <div class="category-card" hx-get="/category/history" hx-target="#game-info">
+                <h3>History</h3>
+            </div>
+            <div class="category-card" hx-get="/category/sports" hx-target="#game-info">
+                <h3>Sports</h3>
+            </div>
+            <div class="category-card" hx-get="/category/music" hx-target="#game-info">
+                <h3>Music</h3>
+            </div>
+            <div class="category-card" hx-get="/category/movies" hx-target="#game-info">
+                <h3>Movies</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="game-info" class="game-info"></section>
+
+    <footer>
+        <p>&copy; 2023 Game Challenge. All rights reserved.</p>
+    </footer>
+</body>
+</html>

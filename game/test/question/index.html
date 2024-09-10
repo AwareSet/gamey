@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Board</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Add styles to center the card */
+        #question-card-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        #question-card {
+            width: 80%;
+            height: 80%;
+            background: #1A1826ff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        #question-card h2 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        #question-card p {
+            margin-bottom: 20px;
+            font-size: 40px;
+        }
+        #question-card .timer {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+    </style>
+    <script>
+        function showQuestionCard() {
+            // Hide all category cards
+            var categoryCards = document.getElementsByClassName('category-card');
+            for (var i = 0; i < categoryCards.length; i++) {
+                categoryCards[i].style.display = 'none';
+            }
+            // Show the question card container
+            var container = document.getElementById('question-card-container');
+            container.style.display = 'flex';
+            startTimer();
+        }
+
+        function closeQuestionCard() {
+            // Show all category cards
+            var categoryCards = document.getElementsByClassName('category-card');
+            for (var i = 0; i < categoryCards.length; i++) {
+                categoryCards[i].style.display = 'block';
+            }
+            // Hide the question card container
+            var container = document.getElementById('question-card-container');
+            container.style.display = 'none';
+        }
+
+        function startTimer() {
+            var timerElement = document.getElementById('question-timer');
+            var timeLeft = 60;
+            var timerInterval = setInterval(function() {
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    alert("Time's up!");
+                } else {
+                    timerElement.textContent = timeLeft;
+                    timeLeft--;
+                }
+            }, 1000);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Game Board</h1>
+        <div class="timer">Time Left: <span id="timer">60</span> seconds</div>
+        <div class="game-board">
+            <div class="category-container">
+                <div class="category-card">
+                    <h3>Science</h3>
+                    <button class="question" onclick="showQuestionCard()">100</button>
+                    <button class="question">200</button>
+                    <button class="question">300</button>
+                    <button class="question">400</button>
+                    <button class="question">500</button>
+                    <button class="question">600</button>
+                </div>
+                <div class="category-card">
+                    <h3>History</h3>
+                    <button class="question" onclick="showQuestionCard()">100</button>
+                    <button class="question">200</button>
+                    <button class="question">300</button>
+                    <button class="question">400</button>
+                    <button class="question">500</button>
+                    <button class="question">600</button>
+                </div>
+                <div class="category-card">
+                    <h3>Geography</h3>
+                    <button class="question" onclick="showQuestionCard()">100</button>
+                    <button class="question">200</button>
+                    <button class="question">300</button>
+                    <button class="question">400</button>
+                    <button class="question">500</button>
+                    <button class="question">600</button>
+                </div>
+                <div class="category-card">
+                    <h3>Literature</h3>
+                    <button class="question" onclick="showQuestionCard()">100</button>
+                    <button class="question">200</button>
+                    <button class="question">300</button>
+                    <button class="question">400</button>
+                    <button class="question">500</button>
+                    <button class="question">600</button>
+                </div>
+                <div class="category-card">
+                    <h3>Sports</h3>
+                    <button class="question" onclick="showQuestionCard()">100</button>
+                    <button class="question">200</button>
+                    <button class="question">300</button>
+                    <button class="question">400</button>
+                    <button class="question">500</button>
+                    <button class="question">600</button>
+                </div>
+                <div class="category-card">
+                    <h3>Entertainment</h3>
+                    <button class="question" onclick="showQuestionCard()">100</button>
+                    <button class="question">200</button>
+                    <button class="question">300</button>
+                    <button class="question">400</button>
+                    <button class="question">500</button>
+                    <button class="question">600</button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Current Team: <span id="current-team">Team 1</span></h2>
+        </div>
+    </div>
+    <div id="question-card-container">
+        <div id="question-card">
+            <h2>Main Question</h2>
+            <p>What is the main question you want to ask?</p>
+            <div class="timer">Time Left: <span id="question-timer">60</span> seconds</div>
+            <button class="large-button" onclick="alert('Answer')">Answer</button>
+            <button class="large-button" onclick="alert('I don\'t know')">I don't know</button>
+            <button class="large-button" onclick="closeQuestionCard()">Close</button>
+        </div>
+    </div>
+</body>
+</html>

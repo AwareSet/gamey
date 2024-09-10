@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Next Page</h1>
+        <p>This is the next page after answering the question.</p>
+        <button onclick="window.location.href='/Users/knighty/govim/cmd/game/test/question/index.html'">Back to Game Board</button>
+    </div>
+</body>
+<script>
+    function showQuestionCard() {
+        // Hide all category cards
+        var categoryCards = document.getElementsByClassName('category-card');
+        for (var i = 0; i < categoryCards.length; i++) {
+            categoryCards[i].style.display = 'none';
+        }
+        // Show the question card container
+        var container = document.getElementById('question-card-container');
+        container.style.display = 'flex';
+        startTimer();
+    }
+
+    function closeQuestionCard() {
+        // Show all category cards
+        var categoryCards = document.getElementsByClassName('category-card');
+        for (var i = 0; i < categoryCards.length; i++) {
+            categoryCards[i].style.display = 'block';
+        }
+        // Hide the question card container
+        var container = document.getElementById('question-card-container');
+        container.style.display = 'none';
+    }
+
+    function startTimer() {
+        var timerElement = document.getElementById('question-timer');
+        var timeLeft = 60;
+        var timerInterval = setInterval(function() {
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                alert("Time's up!");
+                window.location.href = '/Users/knighty/govim/cmd/game/test/question/next.html';
+            } else {
+                timerElement.textContent = timeLeft;
+                timeLeft--;
+            }
+        }, 1000);
+    }
+</script>
+</html>
